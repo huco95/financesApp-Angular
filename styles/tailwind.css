@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/** Hide password eye in MS EDGE */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+.basis-0 {
+    flex-basis: 0px;
+}
+
+.bg-animation {
+  animation: bg-red linear 1.5s;
+}
+
+@keyframes bg-red {
+  from {
+    background-color: #b2f5ea;
+  }
+  to {
+    background-color: inherit;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="bg-white rounded shadow p-3 m-2">
+    <h3 class="font-bold mb-3">Categories expenses</h3>
+    <canvas id="categories-chart"></canvas>
+
+    <ng-container *ngIf="categoriesChartData">
+        <app-chart-legend [legends]="categoriesChartData.legends"></app-chart-legend>
+    </ng-container>
+</div>

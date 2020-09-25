@@ -1,10 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const routes: Routes = [];
+import { AuthGuardService } from './services/auth/auth-guard.service';
+
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { MoveFormComponent } from './components/moves/move-form/move-form.component';
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent, data: {animation: 'LoginPage'} },
+  { path: 'home', component: HomeComponent, data: {animation: 'HomePage'}, canActivate: [AuthGuardService], 
+    children: [
+      { path: 'move', component: MoveFormComponent, outlet: 'modal', data: {animation: 'MovePage'}, canActivate: [AuthGuardService] },
+      { path: 'move/:id', component: MoveFormComponent, outlet: 'modal', data: {animation: 'MovePage'}, canActivate: [AuthGuardService] }
+    ]
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

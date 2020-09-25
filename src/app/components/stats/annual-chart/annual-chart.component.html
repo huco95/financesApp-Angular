@@ -1,0 +1,8 @@
+<div class="bg-white rounded shadow p-3 m-2">
+    <h3 class="font-bold mb-3">Annual balance</h3>
+    <canvas id="annual-chart"></canvas>
+    
+    <ng-container *ngIf="annualChartData">
+        <app-chart-legend [legends]="annualChartData.legends"></app-chart-legend>
+    </ng-container>
+</div>

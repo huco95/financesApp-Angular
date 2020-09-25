@@ -1,0 +1,39 @@
+<div class="flex items-center">
+    <span class="font-bold mr-1">{{ month }}</span>
+    <span class="font-bold mr-1">{{ year }}</span>
+    <div class="relative">
+        <div (click)="toggleSelector()" class="relative z-10 text-gray-700 hover:text-gray-900 cursor-pointer" title="Change date">
+            <svg height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+        </div>
+
+        <!-- Background button to close the selector -->
+        <button *ngIf="selector" (click)="hideSelector()" tabindex="-1" class="fixed inset-0 h-full w-full cursor-default focus:outline-none"></button>
+
+        <!-- Month selector -->
+        <div *ngIf="selector" class="absolute left-0 w-64 p-4 mt-1 bg-white rounded shadow-md">
+            <div class="flex justify-between items-center p-1">
+                <button type="button" (click)="previousYear()" class="text-gray-700 hover:text-gray-900">
+                    <svg height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <span>{{currentYear}}</span>
+                <button type="button" (click)="nextYear()" class="text-gray-700 hover:text-gray-900">
+                    <svg height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+            <div class="grid grid-cols-4 gap-2">
+                <div *ngFor="let month of monthsShort; index as monthNumber"
+                 (click)="updateDate(monthNumber)"
+                 class="text-center bg-gray-200 hover:bg-gray-400 rounded p-2 cursor-pointer"
+                 [ngClass]="{'bg-indigo-300 hover:bg-indigo-400': currentMonth === monthNumber}">
+                    {{month}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<div class="md:max-w-screen-md lg:max-w-screen-lg min-h-screen m-auto">
+    <app-stats-totals class="w-full"></app-stats-totals>
+
+    <div class="flex flex-wrap w-full">
+        <app-annual-chart class="flex-grow flex-shrink basis-0" style="min-width: 300px;"></app-annual-chart>
+        <app-categories-chart class="flex-grow flex-shrink basis-0" style="min-width: 300px;"></app-categories-chart>
+    </div>
+
+    <app-move-list></app-move-list>
+</div>
+
+<div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet" name="modal" ></router-outlet>
+</div>
