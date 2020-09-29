@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1601410611858,
+  "timestamp": 1601416063445,
   "index": "/financesApp-Angular/index.html",
   "assetGroups": [
     {
@@ -28,11 +28,9 @@
         "ignoreVary": true
       },
       "urls": [
-        "/financesApp-Angular/assets/icons/icon-128x128.png",
         "/financesApp-Angular/assets/icons/icon-144x144.png",
-        "/financesApp-Angular/assets/icons/icon-152x152.png",
         "/financesApp-Angular/assets/icons/icon-192x192.png",
-        "/financesApp-Angular/assets/icons/icon-384x384.png",
+        "/financesApp-Angular/assets/icons/icon-48x48.png",
         "/financesApp-Angular/assets/icons/icon-512x512.png",
         "/financesApp-Angular/assets/icons/icon-72x72.png",
         "/financesApp-Angular/assets/icons/icon-96x96.png"
@@ -42,17 +40,15 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/financesApp-Angular/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "/financesApp-Angular/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "/financesApp-Angular/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "/financesApp-Angular/assets/icons/icon-192x192.png": "6eeee6273e376774596912dc88272a7df0ef71ef",
-    "/financesApp-Angular/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/financesApp-Angular/assets/icons/icon-144x144.png": "27259df2900a7924228c01cdfd62c907c171bdef",
+    "/financesApp-Angular/assets/icons/icon-192x192.png": "a4661a62e21cad73fffc85447d98f26d4e0014c7",
+    "/financesApp-Angular/assets/icons/icon-48x48.png": "d26a8ed0f9f8318520e914320c7391e094f68557",
     "/financesApp-Angular/assets/icons/icon-512x512.png": "73b75be3911259da0139b27b2b93f1be3204f9f5",
-    "/financesApp-Angular/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "/financesApp-Angular/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/financesApp-Angular/assets/icons/icon-72x72.png": "cd44db5a2bd72657e7993fad691b5c90fd7e2072",
+    "/financesApp-Angular/assets/icons/icon-96x96.png": "96db76374110cef531fd499b4f29034390d2e6a6",
     "/financesApp-Angular/index.html": "008b52e4463c7534ec900acced618450c17f659f",
     "/financesApp-Angular/main.5f3ec1be2db9a47ebdd8.js": "6d971860c70de31d93f403921189403be571ab09",
-    "/financesApp-Angular/manifest.webmanifest": "49a8cb91b5327d0bf900e08c3fcd811a2fb32f5b",
+    "/financesApp-Angular/manifest.webmanifest": "c0c9638d4f056908ea438f8e302fe848a340385a",
     "/financesApp-Angular/polyfills.08cdd93a9921fbb99ed7.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
     "/financesApp-Angular/runtime.f9956ac3c2762746a398.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/financesApp-Angular/styles.97b6c9201852680d7919.css": "1d4c2152f478a91dbc7a3c04b6b049ac6194a196"
