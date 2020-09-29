@@ -24,6 +24,8 @@ import { MonthSelectorComponent } from './components/month-selector/month-select
 import { ModalComponent } from './components/modal/modal.component';
 import { MoveModalComponent } from './components/moves/move-modal/move-modal.component';
 import { MoveListEmptyComponent } from './components/moves/move-list-empty/move-list-empty.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { MoveListEmptyComponent } from './components/moves/move-list-empty/move-
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent]
