@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build-css": "npx tailwindcss build styles/tailwind.css -o src/styles.css -c styles/tailwind.config.js",
+    "build-github": "ng build --prod --output-path docs --base-href /financesApp-Angular",
     "ng": "ng",
     "start": "ng serve --open --host 0.0.0.0",
     "build": "ng build",
