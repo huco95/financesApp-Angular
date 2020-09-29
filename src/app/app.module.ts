@@ -23,6 +23,7 @@ import { MoveFormComponent } from './components/moves/move-form/move-form.compon
 import { MonthSelectorComponent } from './components/month-selector/month-selector.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MoveModalComponent } from './components/moves/move-modal/move-modal.component';
+import { MoveListEmptyComponent } from './components/moves/move-list-empty/move-list-empty.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MoveModalComponent } from './components/moves/move-modal/move-modal.com
     MonthSelectorComponent,
     ModalComponent,
     MoveModalComponent,
+    MoveListEmptyComponent,
   ],
   imports: [
     BrowserModule,

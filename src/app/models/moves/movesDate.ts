@@ -1,4 +1,4 @@
-import { Category } from './category';
+import { Category } from '../category/category';
 import { Move } from './move';
 
 export interface MovesDate {

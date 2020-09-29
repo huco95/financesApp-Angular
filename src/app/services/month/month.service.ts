@@ -19,9 +19,13 @@ export class MonthService {
 
   public initalizeDates() {
     if (this.getInitalDate() == null && this.getEndDate() == null) {
-      this.setInitalDate(dayjs(new Date()).startOf('month').toDate());
-      this.setEndDate(dayjs(new Date()).endOf('month').toDate());
+      this.setCurrentDate();
     }
+  }
+
+  public setCurrentDate() {
+    this.setInitalDate(dayjs(new Date()).startOf('month').toDate());
+    this.setEndDate(dayjs(new Date()).endOf('month').toDate());
   }
 
   public updateDates(month: number, year: number) {
@@ -66,5 +70,9 @@ export class MonthService {
 
   public getMonthsShort(): string[] {
     return this.localeData.monthsShort();
+  }
+
+  public getMonthsLong(): string[] {
+    return this.localeData.months();
   }
 }

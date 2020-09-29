@@ -1,8 +1,9 @@
-<div class="bg-white rounded shadow p-3 m-2">
+<div class="bg-white rounded shadow p-3 m-2 transition-colors duration-200 ease-in-out"
+ [ngClass]="{'skeleton-box': isLoading}">
     <h3 class="font-bold mb-3">Categories expenses</h3>
-    <canvas id="categories-chart"></canvas>
+    <canvas id="categories-chart" class="transition-opacity duration-200 ease-in-out"></canvas>
 
     <ng-container *ngIf="categoriesChartData">
-        <app-chart-legend [legends]="categoriesChartData.legends"></app-chart-legend>
+        <app-chart-legend [id]="'categories-chart-legend'" [legends]="categoriesChartData.legends"></app-chart-legend>
     </ng-container>
 </div>

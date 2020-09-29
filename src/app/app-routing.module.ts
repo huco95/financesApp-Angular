@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, data: {animation: 'LoginPage'} },
   { path: 'home', component: HomeComponent, data: {animation: 'HomePage'}, canActivate: [AuthGuardService], 
     children: [
-      { path: 'move', component: MoveFormComponent, outlet: 'modal', data: {animation: 'MovePage'}, canActivate: [AuthGuardService] },
-      { path: 'move/:id', component: MoveFormComponent, outlet: 'modal', data: {animation: 'MovePage'}, canActivate: [AuthGuardService] }
+      { path: 'move', component: MoveFormComponent, outlet: 'modal', data: {animation: 'MovePage'} },
+      { path: 'move/:id', component: MoveFormComponent, outlet: 'modal', data: {animation: 'MovePage'} }
     ]
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

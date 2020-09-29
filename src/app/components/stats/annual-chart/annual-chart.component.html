@@ -1,8 +1,9 @@
-<div class="bg-white rounded shadow p-3 m-2">
+<div class="bg-white rounded shadow p-3 m-2 transition-colors duration-200 ease-in-out"
+ [ngClass]="{'skeleton-box': isLoading}">
     <h3 class="font-bold mb-3">Annual balance</h3>
-    <canvas id="annual-chart"></canvas>
+    <canvas id="annual-chart" class="transition-opacity duration-200 ease-in-out"></canvas>
     
     <ng-container *ngIf="annualChartData">
-        <app-chart-legend [legends]="annualChartData.legends"></app-chart-legend>
+        <app-chart-legend [id]="'annual-chart-legend'" [legends]="annualChartData.legends"></app-chart-legend>
     </ng-container>
 </div>

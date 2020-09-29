@@ -1,13 +1,15 @@
-<app-modal redirectTo="/home">
+<app-modal redirectTo="/home" >
 
     <div modal-title>
         <h3 *ngIf="!moveId; then new else edit"></h3>
         <ng-template #new>
-            <h3 class="font-bold">New Move</h3>
+            <h3 *ngIf="!isLoading" class="font-bold">New Move</h3>
         </ng-template>
         <ng-template #edit>
-            <h3 class="font-bold">Edit Move</h3>
+            <h3 *ngIf="!isLoading" class="font-bold">Edit Move</h3>
         </ng-template>
+
+        <div *ngIf="isLoading" class="h-5 w-16 skeleton-box"></div>
     </div>
 
     <div modal-body>
@@ -19,7 +21,7 @@
                     <span class="text-red-500 mr-2">*</span>
                 </label>
 
-                <div class="w-full inline-flex">
+                <div *ngIf="!isLoading" class="w-full inline-flex">
                     <button type="button" *ngIf="moveForm.value.type === 'income'"
                      class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-l rounded-r-none">Income</button>
                     <button type="button" *ngIf="moveForm.value.type != 'income'" (click)="onTypeChange('income')"
@@ -30,6 +32,8 @@
                     <button type="button" *ngIf="moveForm.value.type != 'expense'" (click)="onTypeChange('expense')"
                      class="w-full bg-white text-red-500 border-t border-b border-r border-red-500 hover:text-white hover:bg-red-500 font-bold py-2 px-4 rounded-r rounded-l-none">Expense</button>
                 </div>
+
+                <div *ngIf="isLoading" class="h-10 w-full rounded skeleton-box"></div>
             </div>
 
             <div class="mb-4">
@@ -39,8 +43,10 @@
                     <span class="text-red-500 mr-2">*</span>
                 </label>
 
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="amount" type="number" formControlName="amount" required />
+                <input *ngIf="!isLoading" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                 id="amount" type="number" formControlName="amount" required />
+
+                <div *ngIf="isLoading" class="h-10 w-full rounded skeleton-box"></div>
 
                 <div *ngIf="amount.invalid && (amount.dirty || amount.touched)">
                     <p *ngIf="amount.errors.required" class="text-red-500 text-sm italic">The amount is required.</p>
@@ -55,11 +61,11 @@
                     <span class="text-red-500 mr-2">*</span>
                 </label>
 
-                <div class="relative">
-                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                <div *ngIf="!isLoading" class="relative">
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline capitalize"
                     id="category" formControlName="category" required>
-                    <option value="" disabled selected>-- Select category --</option>    
-                    <option *ngFor="let category of selectedCategories" [ngValue]="category._id">
+                        <option value="" disabled selected>-- Select category --</option>    
+                        <option *ngFor="let category of selectedCategories" [ngValue]="category._id">
                             {{category.name}}
                         </option>
                     </select>
@@ -67,6 +73,8 @@
                         <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                     </div>
                 </div>
+
+                <div *ngIf="isLoading" class="h-10 w-full rounded skeleton-box"></div>
 
                 <div *ngIf="category.invalid && (category.dirty || category.touched)">
                     <p *ngIf="category.errors.required" class="text-red-500 text-sm italic">The category is required.</p>
@@ -77,9 +85,11 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                     Description
                 </label>
-                <input
+                <input *ngIf="!isLoading"
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="description" type="text" formControlName="description" />
+                
+                <div *ngIf="isLoading" class="h-10 w-full rounded skeleton-box"></div>
             </div>
 
             <div>
@@ -89,10 +99,12 @@
                     <span class="text-red-500 mr-2">*</span>
                 </label>
                 
-                <input
+                <input *ngIf="!isLoading"
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="date" type="date" formControlName="date" required />
                 
+                <div *ngIf="isLoading" class="h-10 w-full rounded skeleton-box"></div>
+
                 <div *ngIf="date.invalid && (date.dirty || date.touched)">
                     <p *ngIf="date.errors.required" class="text-red-500 text-sm italic">The date is required.</p>
                 </div>
@@ -102,16 +114,21 @@
 
     <div modal-footer>
         <div class="flex justify-end items-center">
-            <div>
-                <button *ngIf="!isLoading && moveId" (click)="onDelete()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 mr-2 rounded" type="button">Remove</button>
-                <button *ngIf="!isLoading" (click)="onSubmit(moveForm.value)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button">Save</button>
-                <button *ngIf="isLoading" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-not-allowed" type="button" disabled>
+            <div *ngIf="!isLoading">
+                <button *ngIf="!formLoading && moveId" (click)="onDelete()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 mr-2 rounded" type="button">Remove</button>
+                <button *ngIf="!formLoading" (click)="onSubmit(moveForm.value)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button">Save</button>
+                <button *ngIf="formLoading" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-not-allowed" type="button" disabled>
                     <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                     Processing
                 </button>
+            </div>
+
+            <div class="flex justify-around items-center" *ngIf="isLoading">
+                <div class="mr-2 h-10 w-16 rounded skeleton-box"></div>
+                <div class="h-10 w-16 rounded skeleton-box"></div>
             </div>
         </div>
     </div>

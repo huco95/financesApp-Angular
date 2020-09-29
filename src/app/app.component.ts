@@ -11,7 +11,6 @@ import { slideInAnimation } from 'src/animations/slideInAnimation';
   ]
 })
 export class AppComponent {
-  mySubscription;
   title = 'financesApp';
 
   prepareRoute(outlet: RouterOutlet) {

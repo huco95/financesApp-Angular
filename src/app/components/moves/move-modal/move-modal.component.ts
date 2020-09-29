@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Category } from 'src/app/models/moves/category';
+import { Category } from 'src/app/models/category/category';
 import { Move } from 'src/app/models/moves/move';
 import { CategoryService } from 'src/app/services/moves/category.service';
 import { MovesService } from 'src/app/services/moves/moves.service';

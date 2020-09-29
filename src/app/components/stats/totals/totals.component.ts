@@ -5,10 +5,11 @@ import { TotalsService } from 'src/app/services/stats/totals.service';
 
 @Component({
   selector: 'app-stats-totals',
-  templateUrl: './totals.component.html',
-  styleUrls: ['./totals.component.css']
+  templateUrl: './totals.component.html'
 })
 export class TotalsComponent implements OnInit, OnDestroy {
+  isLoading: boolean;
+
   incomes: number = 0;
   expenses: number = 0;
   balance: number = 0;
@@ -19,9 +20,13 @@ export class TotalsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.movesService.movesUpdated.subscribe(
-      () => { this.initalizeTotals(); }
+      () => {
+        this.isLoading = true;
+        this.initalizeTotals();
+      }
     );
     
+    this.isLoading = true;
     this.initalizeTotals();
   }
 
@@ -36,6 +41,8 @@ export class TotalsComponent implements OnInit, OnDestroy {
         this.incomes = totals.incomes;
         this.expenses = totals.expenses;
         this.balance = totals.balance;
+
+        this.isLoading = false;
       }
     );
   }

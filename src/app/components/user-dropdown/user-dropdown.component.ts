@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-user-dropdown',
   templateUrl: './user-dropdown.component.html',
-  styleUrls: ['./user-dropdown.component.css']
 })
 export class UserDropdownComponent implements OnInit {
   isOpen: boolean = false

@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { Category } from 'src/app/models/moves/category';
+import { Category } from 'src/app/models/category/category';
 import { Move } from 'src/app/models/moves/move';
 import { CategoryService } from 'src/app/services/moves/category.service';
 import { MovesService } from 'src/app/services/moves/moves.service';
@@ -18,10 +18,12 @@ export class MoveFormComponent implements OnInit {
   @ViewChild(ModalComponent)
   private modal: ModalComponent;
   
+  isLoading: boolean;
+  
   moveId: string;
 
   moveForm: FormGroup;
-  isLoading: boolean = false;
+  formLoading: boolean = false;
 
   incomeCategories: Array<Category>;
   expenseCategories: Array<Category>;
@@ -54,6 +56,8 @@ export class MoveFormComponent implements OnInit {
   }
 
   private async initializeForm() {
+    this.isLoading = true;
+    
     await this.categoryService.getCategoriesByType('income').toPromise()
     .then(categories => { this.incomeCategories = categories; })
     .catch();
@@ -68,12 +72,14 @@ export class MoveFormComponent implements OnInit {
         move => {
           this.populateForm(move);
           this.updateCategories(move.type);
+          this.isLoading = false;
         }
       );
 
     } else {
       this.type.setValue('income');
       this.selectedCategories = this.incomeCategories;
+      this.isLoading = false;
     }
   }
 
@@ -114,7 +120,7 @@ export class MoveFormComponent implements OnInit {
 
   onSubmit(moveData: any) {
     if (this.moveForm.valid) {
-      this.isLoading = true;
+      this.formLoading = true;
       let move: Move = new Move();
       move.amount = moveData.amount;
       move.type = moveData.type;
@@ -126,13 +132,13 @@ export class MoveFormComponent implements OnInit {
   
       this.moveService.saveMove(move).subscribe(
         move => {
-          this.isLoading = false;
+          this.formLoading = false;
           this.moveService.submitMove(move);
           this.modal.closeModal();
         },
         err => {
           console.log(err);
-          this.isLoading = false;
+          this.formLoading = false;
         }
       );
     } else {

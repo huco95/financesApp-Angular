@@ -1,11 +1,9 @@
 import { SafeHtml } from '@angular/platform-browser';
 
 export interface Category {
-    color: string;
-    description: string;
-    icon: string;
-    icon_svg: SafeHtml;
     name: string;
-    type: string;
+    type: "expense" | "income";
+    color: string;
+    icon_svg: SafeHtml;
     _id: string;
 }

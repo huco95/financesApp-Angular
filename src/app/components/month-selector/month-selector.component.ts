@@ -5,7 +5,6 @@ import { MovesService } from 'src/app/services/moves/moves.service';
 @Component({
   selector: 'app-month-selector',
   templateUrl: './month-selector.component.html',
-  styleUrls: ['./month-selector.component.css']
 })
 export class MonthSelectorComponent implements OnInit {
   selector: boolean;
@@ -59,10 +58,17 @@ export class MonthSelectorComponent implements OnInit {
     this.currentYear++;
   }
 
+  setCurrentMonth() {
+    this.monthService.setCurrentDate();
+    this.initializeCurrentDate();
+    this.setDisplayDates();
+    this.moveService.updateMoves(null);
+    this.hideSelector();
+  }
+
   updateDate(slectedMonth: number) {
     this.currentMonth = slectedMonth;
-    this.displayMonth = this.currentMonth;
-    this.displayYear = this.currentYear;
+    this.setDisplayDates();
 
     this.monthService.updateDates(this.currentMonth, this.currentYear);
     this.moveService.updateMoves(null);

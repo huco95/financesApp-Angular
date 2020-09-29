@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 
-import { ChartData } from 'src/app/models/stats/chartData';
 import { MonthService } from '../month/month.service';
+import { CategoriesChart } from 'src/app/models/charts/categoriesChart';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class CategoriesChartService {
 
   constructor(private http: HttpClient, private monthService: MonthService) { }
 
-  public getDataset(): Observable<ChartData> {
-    return this.http.get<ChartData>(environment.api_base + "/stats/chart/categories", {
+  public getDataset(): Observable<Array<CategoriesChart>> {
+    return this.http.get<Array<CategoriesChart>>(environment.api_base + "/stats/chart/categories", {
       params: {
         initDate: this.monthService.getInitalDate(),
         endDate: this.monthService.getEndDate(),
