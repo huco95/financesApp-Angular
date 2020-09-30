@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1601416063445,
+  "timestamp": 1601467094262,
   "index": "/financesApp-Angular/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "/financesApp-Angular/index.html",
-        "/financesApp-Angular/main.5f3ec1be2db9a47ebdd8.js",
+        "/financesApp-Angular/main.2cec2b2e131b342e3cca.js",
         "/financesApp-Angular/manifest.webmanifest",
         "/financesApp-Angular/polyfills.08cdd93a9921fbb99ed7.js",
         "/financesApp-Angular/runtime.f9956ac3c2762746a398.js",
@@ -46,8 +46,8 @@
     "/financesApp-Angular/assets/icons/icon-512x512.png": "73b75be3911259da0139b27b2b93f1be3204f9f5",
     "/financesApp-Angular/assets/icons/icon-72x72.png": "cd44db5a2bd72657e7993fad691b5c90fd7e2072",
     "/financesApp-Angular/assets/icons/icon-96x96.png": "96db76374110cef531fd499b4f29034390d2e6a6",
-    "/financesApp-Angular/index.html": "008b52e4463c7534ec900acced618450c17f659f",
-    "/financesApp-Angular/main.5f3ec1be2db9a47ebdd8.js": "6d971860c70de31d93f403921189403be571ab09",
+    "/financesApp-Angular/index.html": "2460aaf48544e173c1cc12c5f4efb29e987350d7",
+    "/financesApp-Angular/main.2cec2b2e131b342e3cca.js": "68de54483425a15b4f0217bb842095d8dbe6470f",
     "/financesApp-Angular/manifest.webmanifest": "c0c9638d4f056908ea438f8e302fe848a340385a",
     "/financesApp-Angular/polyfills.08cdd93a9921fbb99ed7.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
     "/financesApp-Angular/runtime.f9956ac3c2762746a398.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
