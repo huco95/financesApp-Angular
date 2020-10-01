@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1601467094262,
+  "timestamp": 1601559065509,
   "index": "/financesApp-Angular/index.html",
   "assetGroups": [
     {
@@ -12,11 +12,11 @@
       },
       "urls": [
         "/financesApp-Angular/index.html",
-        "/financesApp-Angular/main.2cec2b2e131b342e3cca.js",
+        "/financesApp-Angular/main.8542b616b3d3237808ad.js",
         "/financesApp-Angular/manifest.webmanifest",
         "/financesApp-Angular/polyfills.08cdd93a9921fbb99ed7.js",
         "/financesApp-Angular/runtime.f9956ac3c2762746a398.js",
-        "/financesApp-Angular/styles.97b6c9201852680d7919.css"
+        "/financesApp-Angular/styles.be38e4e09565158b7172.css"
       ],
       "patterns": []
     },
@@ -46,12 +46,12 @@
     "/financesApp-Angular/assets/icons/icon-512x512.png": "73b75be3911259da0139b27b2b93f1be3204f9f5",
     "/financesApp-Angular/assets/icons/icon-72x72.png": "cd44db5a2bd72657e7993fad691b5c90fd7e2072",
     "/financesApp-Angular/assets/icons/icon-96x96.png": "96db76374110cef531fd499b4f29034390d2e6a6",
-    "/financesApp-Angular/index.html": "2460aaf48544e173c1cc12c5f4efb29e987350d7",
-    "/financesApp-Angular/main.2cec2b2e131b342e3cca.js": "68de54483425a15b4f0217bb842095d8dbe6470f",
+    "/financesApp-Angular/index.html": "398f3668572f90794f95312cda5d95844272905a",
+    "/financesApp-Angular/main.8542b616b3d3237808ad.js": "f255023697b7ce5beeef02f8d6e429b1d5c98d34",
     "/financesApp-Angular/manifest.webmanifest": "c0c9638d4f056908ea438f8e302fe848a340385a",
     "/financesApp-Angular/polyfills.08cdd93a9921fbb99ed7.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
     "/financesApp-Angular/runtime.f9956ac3c2762746a398.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/financesApp-Angular/styles.97b6c9201852680d7919.css": "1d4c2152f478a91dbc7a3c04b6b049ac6194a196"
+    "/financesApp-Angular/styles.be38e4e09565158b7172.css": "5f5cd8e6b11678ac021622390e6bed036affdea9"
   },
   "navigationUrls": [
     {

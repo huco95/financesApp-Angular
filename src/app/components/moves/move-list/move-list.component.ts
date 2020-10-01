@@ -9,7 +9,6 @@ import { MovesService } from 'src/app/services/moves/moves.service';
 @Component({
   selector: 'app-move-list',
   templateUrl: './move-list.component.html',
-  styleUrls: ['./move-list.component.css']
 })
 export class MoveListComponent implements OnInit, OnDestroy {
   isLoading: boolean;
@@ -53,6 +52,17 @@ export class MoveListComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       }
     );
+  }
+
+  private addUpdatedMove(move: Move) {
+    this.updatedMove = move;
+    this.updatedMove.category = this.categroyService.generateCategroyIcon(this.updatedMove.category);
+
+    // Add move to the movesDate list
+    // Check if the move is for the current move
+    // If so, add the move to the correspondig date or create a new moveDate if the date is not present
+
+    this.isLoading = false;
   }
 
 }

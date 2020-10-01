@@ -26,6 +26,7 @@ import { MoveModalComponent } from './components/moves/move-modal/move-modal.com
 import { MoveListEmptyComponent } from './components/moves/move-list-empty/move-list-empty.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { environment } from '../environments/environment';
     ModalComponent,
     MoveModalComponent,
     MoveListEmptyComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

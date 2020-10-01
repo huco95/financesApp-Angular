@@ -1,0 +1,74 @@
+<div class="min-h-screen flex justify-center items-center">
+
+    <div>
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username"
+                [ngClass]="{'text-red-700': username.invalid && (username.dirty || username.touched)}">
+                    Username
+                    <span class="text-red-500 mr-2">*</span>
+                </label>
+                <input id="username" type="text" formControlName="username" placeholder="Username" required
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+
+                <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                    <p *ngIf="username.errors.required" class="text-red-500 text-sm italic">The username is required.</p>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password"
+                [ngClass]="{'text-red-700': password.invalid && (password.dirty || password.touched)}">
+                    Password
+                    <span class="text-red-500 mr-2">*</span>
+                </label>
+
+                <div class="relative">
+                    <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="**********" required
+                    class="shadow appearance-none border rounded w-full py-2 pl-3 pr-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+                       
+                    <div (click)="tooglePassword()" 
+                     class="absolute inset-y-0 right-0 flex items-center text-gray-700 hover:text-gray-900 mr-2 cursor-pointer">
+                        <svg *ngIf="!showPassword" height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <svg *ngIf="showPassword" height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <p *ngIf="password.errors.required" class="text-red-500 text-sm italic">The password is required.</p>
+                </div>
+            </div>
+
+            <div class="mb-6" *ngIf="password.valid">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword"
+                [ngClass]="{'text-red-700': confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)}">
+                    Confirm Password
+                    <span class="text-red-500 mr-2">*</span>
+                </label>
+
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="**********"
+                class="shadow appearance-none border rounded w-full py-2 pl-3 pr-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+
+                <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+                    <p *ngIf="confirmPassword.errors.required" class="text-red-500 text-sm italic">The confirmation is required.</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center">
+                <button *ngIf="!isLoading" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Register</button>
+                <button *ngIf="isLoading" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-not-allowed" type="button" disabled>
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
