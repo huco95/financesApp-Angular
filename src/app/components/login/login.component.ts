@@ -7,7 +7,6 @@ import { AuthService } from '../../services/auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   showError: boolean = false;
@@ -36,16 +35,21 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
     this.showError = false;
 
-    this.authService.login(loginData.username, loginData.password).subscribe(
-      res => {
-        this.authService.saveToken(res);
-        this.router.navigate(['home']);
-      },
-      err => {
-        this.showError = true;
-        this.isLoading = false;
-      }
-    );
+    if (loginData.username == "" || loginData.password == "") {
+      this.showError = true;
+      this.isLoading = false;
+    } else {
+      this.authService.login(loginData.username, loginData.password).subscribe(
+        res => {
+          this.authService.saveToken(res);
+          this.router.navigate(['home']);
+        },
+        err => {
+          this.showError = true;
+          this.isLoading = false;
+        }
+      );
+    }
   }
 
   tooglePassword() {

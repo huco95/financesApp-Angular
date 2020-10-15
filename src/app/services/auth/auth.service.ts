@@ -21,6 +21,11 @@ export class AuthService {
     return this.http.post<any>(environment.api_base + '/login/jwt', payload);
   }
 
+  public register(username: string, password: string): Observable<any> {
+    const payload = new HttpParams().set('username', username).set('password', password);
+    return this.http.post<any>(environment.api_base + '/signup', payload);
+  }
+
   public logout() {
     this.tokenStorageService.removeToken();
     this.router.navigate(['login']);

@@ -1,6 +1,12 @@
 <div class="min-h-screen flex justify-center items-center">
 
     <div>
+
+        <div class="text-center mb-4">
+            <span class="text-4xl">💰</span>
+            <h1 class="font-bold text-2xl">Sing in to FinancesApp</h1>
+        </div>
+
         <div *ngIf="showError" class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3 mb-4 rounded" role="alert">
             <svg class="mr-2" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" /></svg>
             <span>Incorrect username or password.</span>
@@ -40,8 +46,8 @@
             </div>
 
             <div class="flex justify-center items-center">
-                <button *ngIf="!isLoading" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Login</button>
-                <button *ngIf="isLoading" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-not-allowed" type="button" disabled>
+                <button *ngIf="!isLoading" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold w-full py-1 rounded" type="submit">Login</button>
+                <button *ngIf="isLoading" class="inline-flex items-center bg-indigo-500 hover:bg-indigo-700 text-white w-full font-bold py-2 px-4 rounded cursor-not-allowed" type="button" disabled>
                     <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -50,5 +56,14 @@
                 </button>
             </div>
         </form>
+
+        <div class="relative text-center w-full">
+            <span class="relative z-10 text-gray-600 bg-gray-200 p-1">New user?</span>
+            <div class="absolute h-1 w-full bg-gray-400" style="height:1px; top:50%;"></div>
+        </div>
+
+        <div class="text-center">
+            <a [routerLink]="['/register']" class="font-bold text-indigo-500 hover:text-indigo-700">Create an account</a>
+        </div>
     </div>
 </div>
