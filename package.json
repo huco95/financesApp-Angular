@@ -2,8 +2,10 @@
   "name": "finances-app",
   "version": "0.0.0",
   "scripts": {
-    "build-css": "npx tailwindcss build styles/tailwind.css -o src/styles.css -c styles/tailwind.config.js",
-    "build-github": "ng build --prod --output-path docs --base-href /financesApp-Angular/",
+    "build-css-dev": "npx tailwindcss build styles/tailwind.css -o src/styles.css -c styles/tailwind.config.js",
+    "build-css-pro": "NODE_ENV=production npx tailwindcss build styles/tailwind.css -o src/styles.css -c styles/tailwind.config.js",
+    "build-ang-pro": "ng build --prod --output-path docs --base-href /financesApp-Angular/",
+    "build-pro": "npm run build-css-pro && npm run build-ang-pro",
     "ng": "ng",
     "start": "ng serve --open --host 0.0.0.0",
     "build": "ng build",
