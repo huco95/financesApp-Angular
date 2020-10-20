@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
    * Register process.
    */
   registerUser() {
+    this.isLoading = true;
     this.showError = false;
     this.showPassword = false;
 
