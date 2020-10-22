@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   showPassword: boolean = false;
+  errorMessage: string;
   showError: boolean = false;
   isLoading: boolean = false;
 
@@ -43,19 +44,33 @@ export class RegisterComponent implements OnInit {
     this.showPassword = false;
 
     if (this.registerForm.valid) {
-       this.authService.register(this.username.value, this.password.value).subscribe(
-         res => {
-          this.router.navigate(['login']);
-         },
-         err => {
-           this.showError = true;
-           this.isLoading = false;
-         }
-       );
+      this.authService.register(this.username.value, this.password.value).subscribe(
+        response => {
+          if (response.success) {
+            this.router.navigate(['login']);
+
+          } else if (response.message === 'duplicate') {
+            this.displayError('This username is already registered.');
+
+          } else {
+            this.displayError('There was an error creating your account. Please, try again.');
+          }
+        },
+        err => {
+          this.displayError('There was an error creating your account. Please, try again.');
+        }
+      );
 
     } else {
       this.showFormErrors();
     }
+
+    this.isLoading = false;
+  }
+
+  private displayError(msg: string) {
+    this.showError = true;
+    this.errorMessage = msg;
   }
   
   /**

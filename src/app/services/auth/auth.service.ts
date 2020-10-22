@@ -5,6 +5,7 @@ import { TokenStorageService } from './token-storage.service';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
+import { Response } from 'src/app/models/reponse';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AuthService {
     return this.http.post<any>(environment.api_base + '/login/jwt', payload);
   }
 
-  public register(username: string, password: string): Observable<any> {
+  public register(username: string, password: string): Observable<Response> {
     const payload = new HttpParams().set('username', username).set('password', password);
     return this.http.post<any>(environment.api_base + '/signup', payload);
   }
