@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
 import { Response } from 'src/app/models/reponse';
+import { LoginResponse } from 'src/app/models/loginResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
     private router: Router,
     private tokenStorageService: TokenStorageService) { }
 
-  public login(username: string, password: string): Observable<any> {
+  public login(username: string, password: string): Observable<LoginResponse> {
     const payload = new HttpParams().set('username', username).set('password', password);
     return this.http.post<any>(environment.api_base + '/login/jwt', payload);
   }

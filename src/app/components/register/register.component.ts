@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register(this.username.value, this.password.value).subscribe(
         response => {
           if (response.success) {
-            this.router.navigate(['login']);
+            this.router.navigate(['login', { user: 'new' }]);
 
           } else if (response.message === 'duplicate') {
             this.displayError('This username is already registered.');
